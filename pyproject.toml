@@ -1,0 +1,10 @@
+[project]
+name = "mlr-agent-lab"
+version = "0.1.0"
+description = "Agent working-rules lab: docs-driven repo used to exercise Claude Code + uv"
+requires-python = ">=3.12"
+dependencies = []
+
+# This repo is a collection of runnable scripts, not an installable package.
+[tool.uv]
+package = false
