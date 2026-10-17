@@ -13,18 +13,19 @@ don't let this file rot, it is the second thing agents read.
   interpreter; it was moved to `%TEMP%` and a `python3.exe` shim added).
 - `gh` authenticated as **Blubeeris**; git HTTPS credentials routed through
   `gh auth setup-git`.
-- Local git repo has history but is not yet pushed to GitHub.
+- Pushed: repo is live and public at https://github.com/Blubeeris/mlr-agent-lab
+  (commits use the `159132016+Blubeeris@users.noreply.github.com` alias, repo-local only).
 
 ## Done
 
 - [x] Smoke test exists and passes: `uv run python hello.py` → `hello`, exit 0.
 - [x] `AGENTS.md` + `CLAUDE.md` in place.
 - [x] `README.md`, `PLAN.md`, `RUNS.md` created.
+- [x] Public repo pushed; a clean clone + `uv sync` + `uv run python hello.py` works.
 
 ## Next step
 
-1. Push to GitHub as a public repo `mlr-agent-lab` (`gh repo create --public --source=. --push`).
-2. Replace the `hello.py` placeholder with real content — the project name suggests ML
+1. Replace the `hello.py` placeholder with real content — the project name suggests ML
    regression experiments; nothing in the repo commits to that yet, so state the actual
    goal here once known.
 3. Add the first real dependency with `uv add`, and a test runner (`uv add --dev pytest`)

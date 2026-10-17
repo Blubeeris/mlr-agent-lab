@@ -92,6 +92,28 @@ Entry template:
 - **Unverified / left open:** `CLAUDE.md`'s `@AGENTS.md` import was not verified by
   restarting a session — it will only be confirmed the next time this repo is opened.
 
+## 6 — 2026-10-17 — finished the docs, pushed a public repo
+
+- **Model:** not captured (CLI 2.1.302, effort high) — see note below.
+- **Asked:** create a public GitHub repo `mlr-agent-lab` from this folder with `gh`, and
+  show what would be uploaded *before* pushing.
+- **Changed:** first wrote the three docs left pending from run 5 (`README.md`, `PLAN.md`,
+  `RUNS.md`) so `AGENTS.md` would not reference missing files; set repo-local
+  `user.email` to `159132016+Blubeeris@users.noreply.github.com` (global config left alone);
+  committed `eaa7657`, renamed `master` → `main`, `gh repo create --public --source=. --push`.
+- **Checked before pushing:** payload listed with sizes; `.venv` confirmed ignored via
+  `git check-ignore`; secret/PII scan (`sk-`, `ghp_`, `gho_`, `ANTHROPIC_AUTH_TOKEN`,
+  `-----BEGIN`, real name, real e-mail) found nothing; `uv run python hello.py` → `hello`.
+  Also confirmed the name was free and that the token's `repo` scope allows creation.
+- **Checked after pushing:** remote has exactly the 10 intended files; anonymous
+  `GET /repos/...` → `"private": false`, and `raw.githubusercontent.com` returns HTTP 200
+  without a token; stored commit author email is the noreply alias with **0** gmail
+  addresses in history; a fresh anonymous `git clone` + `uv sync` +
+  `uv run python hello.py` printed `hello` with no credentials prompted.
+- **Unverified / left open:** git printed `LF will be replaced by CRLF` warnings on all 10
+  files — no `.gitattributes` yet, so line endings depend on each cloner's config. The
+  `CLAUDE.md` `@AGENTS.md` import is still unverified by a session restart.
+
 ## Note on the model label
 
 The `/status` panel is not readable from inside the session, so no run above records a
